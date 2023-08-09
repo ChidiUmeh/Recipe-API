@@ -12,11 +12,12 @@ module.exports.createNewRecipe = async(req,res)=>{
 
  module.exports.mymeals = async(req,res)=>{
     users = await Users.findById({_id:req.user._id}).select("recipes -_id").populate("recipes")
-res.status(200).json({message:users})
+    res.status(200).json({message:users})
 }
 
 module.exports.deleteId = async(req,res)=>{
     const recipe = await Recipe.findOneAndDelete({_id:req.params.id, createdBy:req.user._id})
+    await Users.updateOne({_id:req.user._id},{$pull: {recipes:req.params.id}})
     if(!recipe){
         return res.status(404).json({message:"You cannot delete this recipe"})
     }

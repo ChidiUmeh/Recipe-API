@@ -7,3 +7,26 @@ Content-Type: application/json
     "password": "022445",
     "username":"chychy"
 }
+
+####
+GET http://localhost:5000/recipe
+####
+
+GET http://localhost:5000/recipe/64d35b2df52b1fe1468ade6a
+
+####
+GET http://localhost:5000/user/64d35b2df52b1fe1468ade6a
+
+####
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+       "username":"chychy",
+       "password": "022445" 
+}
+
+####
+
+GET http://localhost:5000/mymeals
+
