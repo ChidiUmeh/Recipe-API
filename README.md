@@ -1,11 +1,9 @@
 # Receipe Web API
 
-### description of what you are expected to build.
-
 The goal of this project is to build a web API where users can sign up and post different dishes, their receipe and the process of making it.
 ## Routes
 
-Your API should have these endpoints.
+The API have these endpoints.
 
 #### No Auth Routes
 
@@ -27,7 +25,7 @@ Your API should have these endpoints.
 * `PUT /users/settings ` Change the user password and invalidate every other logged in users token
 
 
-### Your Schema should look something like this
+### Schema should look something like this
 
 ```
     userschema {
@@ -50,21 +48,4 @@ Your API should have these endpoints.
     }
 ```
 
-## Contributing
 
-Note: Only users added as contributors to this project are allowed!
-
-Each contributors should have two branches, one for creating the app using a json database and another using mongodb
-To contribute :
-
-1. Clone this repo.
-   ``` $ git clone https://github.com/Techquet-Academy-class-project/receipeApi.git ```
-3. From the master branch, create your own branch, your branch format should be `Yourname/mongodb ` or `Yourname/jsondb`
-   
-   ```$ git checkout master ```
-   
-   ``` $ git checkout -b yourname/jsondb```
-   
-5. write your codes, commit each feature you implement and push to your own branch
-
-   ``` $ git push origin yourname/jsondb```
