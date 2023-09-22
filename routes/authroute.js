@@ -11,7 +11,7 @@ router.post('/createNewRecipe', createNewRecipe)
 
 router.get('/mymeals', mymeals)
 
-router.delete('/receipe/:id/', deleteId)
+router.delete('/receipe/:id', deleteId)
 
 router.put('/receipe/:id', editId)
 

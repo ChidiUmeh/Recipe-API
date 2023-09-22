@@ -1,4 +1,4 @@
-module.exports.errorHandlerMidddleware = (err,req,res,next)=>{
+module.exports.errorHandlerMiddleware = (err,req,res,next)=>{
     console.log(err)
     if(err.name == 'JsonWebTokenError'){
         return res.json({data : null , success : false , message : "invalid token, please log back in"})

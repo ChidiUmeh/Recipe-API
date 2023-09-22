@@ -4,8 +4,7 @@ const {Users,Recipe} = require('../model/schema')
 const jwt = require("jsonwebtoken")
 
 module.exports.createNewRecipe = async(req,res)=>{
-     const recipe = await Recipe.create({...req.body, createdBy:req.user._id})
-     if(recipe)  
+     const recipe = await Recipe.create({...req.body, createdBy:req.user._id}) 
      await Users.updateOne({_id:req.user._id},{$push: {recipes:recipe._id}})
      res.status(200).json({message : "successfully created", success : true})
  }
@@ -22,7 +21,6 @@ module.exports.deleteId = async(req,res)=>{
         return res.status(404).json({message:"You cannot delete this recipe"})
     }
     res.status(200).json({message : "successfully deleted"})
-
 }
 
 module.exports.editId = async (req,res)=>{
@@ -41,9 +39,9 @@ module.exports.editId = async (req,res)=>{
 
 module.exports.getProfile = async(req,res)=>{
         const userDetails = await Users.find({_id:req.user._id},"-recipes")
-        const user = await Users.find({_id:req.user._id}).select("recipes -_id")
+        const user = await Users.find({_id:req.user._id},"-changedPasswordTime").select("recipes -_id")
         const c = user.map(value=>value.recipes.length)
-        return res.status(200).json({userDetails, NumberofMeals:Number(c.join(''))})
+        return res.status(200).json({user, NumberofMeals:Number(c.join(''))})
     }
 
 module.exports.editProfile = async(req,res)=>{
